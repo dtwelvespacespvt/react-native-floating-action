@@ -455,7 +455,8 @@ class FloatingAction extends Component {
       overrideWithAction,
       distanceToEdge,
       actionsPaddingTopBottom,
-      animated
+      animated,
+      itemActiveOpacity
     } = this.props;
     const { active } = this.state;
 
@@ -514,6 +515,7 @@ class FloatingAction extends Component {
               active={active}
               onPress={this.handlePressItem}
               animated={animated}
+              touchableActiveOpacity={itemActiveOpacity}
             />
           );
         })}
@@ -602,7 +604,8 @@ FloatingAction.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   onPressBackdrop: PropTypes.func,
-  onStateChange: PropTypes.func
+  onStateChange: PropTypes.func,
+  itemActiveOpacity: PropTypes.number
 };
 
 FloatingAction.defaultProps = {
@@ -623,7 +626,8 @@ FloatingAction.defaultProps = {
   iconColor: '#fff',
   mainVerticalDistance: 0,
   animated: true,
-  shadow: {}
+  shadow: {},
+  itemActiveOpacity: 0.4
 };
 
 const styles = StyleSheet.create({

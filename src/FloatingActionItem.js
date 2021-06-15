@@ -139,7 +139,8 @@ class FloatingActionItem extends Component {
       render,
       margin,
       name,
-      animated
+      animated,
+      touchableActiveOpacity
     } = this.props;
 
     const Touchable = getTouchableComponent(false);
@@ -184,7 +185,7 @@ class FloatingActionItem extends Component {
 
     return (
       <Touchable
-        activeOpacity={0.4}
+        activeOpacity={touchableActiveOpacity}
         style={styles.container}
         onPress={this.handleOnPress}
       >
@@ -243,7 +244,8 @@ FloatingActionItem.propTypes = {
   onPress: PropTypes.func,
   render: PropTypes.func,
   margin: PropTypes.number,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  touchableActiveOpacity: PropTypes.number
 };
 
 FloatingActionItem.defaultProps = {
@@ -263,7 +265,8 @@ FloatingActionItem.defaultProps = {
     },
     shadowColor: "#000000",
     shadowRadius: 3
-  }
+  },
+  touchableActiveOpacity: 0.4
 };
 
 const styles = StyleSheet.create({
